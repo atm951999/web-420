@@ -7,6 +7,7 @@
         "published_books": [
             {
                 "book_id":  "700",
+                "isbn": "591364728",
                 "name": "How to Make NoSQL Data Structures",
                 "price": "56.84",
                 "author": {
@@ -19,6 +20,7 @@
             },
             {
                 "book_id":  "701",
+                "isbn": "653981637",
                 "name": "How to Make ORD's",
                 "price": "67.87",
                 "author": {
