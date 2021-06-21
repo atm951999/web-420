@@ -1,5 +1,14 @@
+/*
+============================================
+; Title: Assignment 4.2
+; Author: Professor Krasso
+; Date: 20 June 2021
+; Modified By: Angela Martin
+; Description: This program utilizes Node.js. This is the Composer API.
+;===========================================
+*/
 
-
+//Required.
 var express = require("express");
 
 var http = require("http");
@@ -10,14 +19,41 @@ var swaggerJSDoc = require("swagger-jsdoc");
 
 var mongoose = require("mongoose");
 
+var myRoutes = require('./routes/martin-composer-routes.js')
 
+// Link to mongoDB.
+var mongoDBLink = "mongodb+srv://admin:admin@buwebdev-cluster-1.teesf.mongodb.net/test"
+
+// Mongoose connection. 
+mongoose.connect(mongoDBLink, {
+});
+
+mongoose.Promise = global.Promise;
+
+var db = mongoose.connection;
+
+db.on("error", console.error.bind(console, "MongoDB connection error: "));
+
+db.once("open", function() {
+    console.log("Application connected to MongoDB instance");
+});
+
+
+// Create app variable.
 let app = express();
+
+//Set port.
 app.set("port", process.env.PORT || 3000);
 
+// Set app to use express.json.
 app.use(express.json());
 
+//Set app to use express.urlencoded
 app.use(express.urlencoded('extended', true));
 
+app.use('/api', myRoutes)
+
+//Define options.
 const options = {
     definition: {
         openapi: "3.0.0",
@@ -33,6 +69,8 @@ const openAPISpecification = swaggerJSDoc(options);
 
 app.use('/api-docs', swaggerUIExpress.serve, swaggerUIExpress.setup(openAPISpecification));
 
+
+// Create server and listen on port 3000.
 http.createServer(app).listen(3000, function() {
 
     console.log("Application started and listening on port 3000!");
