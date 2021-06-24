@@ -45,10 +45,10 @@ let app = express();
 //Set port.
 app.set("port", process.env.PORT || 3000);
 
-// Set app to use express.json.
+// Use express.json.
 app.use(express.json());
 
-//Set app to use express.urlencoded
+// Use express.urlencoded
 app.use(express.urlencoded('extended', true));
 
 app.use('/api', myRoutes)
