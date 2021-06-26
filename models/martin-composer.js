@@ -5,14 +5,14 @@
 ; Date: 24 June 2021
 ; Modified By: Angela Martin
 ; Description: This program demonstrates the 
-; use of Node.js.
+; use of Node.js in the Composer API.
 ===========================================
 */
 
 // Required
 const mongoose = require("mongoose");
 
-// Create Schema variable and assign to mongoose.Schema
+// Create Schema variable
 const Schema = mongoose.Schema;
 
 // Create composerSchema
