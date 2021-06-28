@@ -30,8 +30,8 @@ const dependentSchema = new Schema ({
 const personSchema = new Schema ({
     firstName: String,
     lastName: String,
-    roles: Array,
-    dependents: Array,
+    roles: [roleSchema],
+    dependents: [dependentSchema],
     birthDate: String
 })
 

@@ -20,6 +20,7 @@ const Composer = require("../models/martin-composer");
  * /api/composers:
  *   get:
  *     description: Find all composers.
+ *     tags: [composer]
  *     responses:
  *       200:
  *         description: Array of composer documents
@@ -46,6 +47,7 @@ router.get("/composers", (req, res) => {
  *   post:
  *     summary: Creates a new composer object
  *     description: Creates a new composer object.
+ *     tags: [composer]
  *     requestBody:
  *       description:
  *         Composer's Information
@@ -88,6 +90,7 @@ router.post("/composers", (req, res) => {
  *   get:
  *     summary: returns a composer document
  *     description: API for returning a single composer object from MongoDB.
+ *     tags: [composer]
  *     parameters:
  *       - in: path
  *         name: id
@@ -118,4 +121,5 @@ router.get("/composers/:id", (req, res) => {
     }
 })
 
+// Export router
 module.exports = router

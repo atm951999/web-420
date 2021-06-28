@@ -19,7 +19,9 @@ var swaggerJSDoc = require("swagger-jsdoc");
 
 var mongoose = require("mongoose");
 
-var myRoutes = require('./routes/martin-composer-routes.js')
+var composerRoutes = require('./routes/martin-composer-routes.js')
+
+var personRoutes = require('./routes/martin-person-routes.js')
 
 // Link to mongoDB.
 var mongoDBLink = "mongodb+srv://admin:admin@buwebdev-cluster-1.teesf.mongodb.net/test"
@@ -51,7 +53,7 @@ app.use(express.json());
 // Use express.urlencoded
 app.use(express.urlencoded('extended', true));
 
-app.use('/api', myRoutes)
+app.use('/api', [composerRoutes, personRoutes])
 
 //Define options.
 const options = {

@@ -21,6 +21,7 @@ const Person = require("../models/martin-person");
  * /api/persons:
  *   get:
  *     description: Find all persons.
+ *     tags: [person]
  *     responses:
  *       200:
  *         description: Array of person documents
@@ -48,6 +49,7 @@ const Person = require("../models/martin-person");
  *   post:
  *     summary: Creates a new person object
  *     description: Creates a new person object.
+ *     tags: [person]
  *     requestBody:
  *       description:
  *         Person's Information
@@ -60,9 +62,25 @@ const Person = require("../models/martin-person");
  *                 type: "string"
  *               lastName:
  *                 type: "string"
+ *               roles:
+ *                 type: "array"
+ *                 items: 
+ *                   type: "object"
+ *                   properties:
+ *                     text:
+ *                       type: "string"
+ *               dependents:
+ *                 type: "array"
+ *                 items: 
+ *                   type: "object"
+ *                   properties:
+ *                     firstName:
+ *                       type: "string"
+ *                     lastName:
+ *                       type: "string"
  *     responses:
  *       200:
- *         description: Composer document
+ *         description: Person document
  *       500:
  *         description: Server Exception
  *       501:
@@ -86,5 +104,8 @@ const Person = require("../models/martin-person");
         res.status(500).send("server exception")
     }    
 })
+
+// Export router
+module.exports = router
 
 
