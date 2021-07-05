@@ -23,6 +23,8 @@ var composerRoutes = require('./routes/martin-composer-routes.js')
 
 var personRoutes = require('./routes/martin-person-routes.js')
 
+var userRoutes = require('./routes/martin-session-routes.js')
+
 // Link to mongoDB.
 var mongoDBLink = "mongodb+srv://admin:admin@buwebdev-cluster-1.teesf.mongodb.net/test"
 
@@ -53,7 +55,7 @@ app.use(express.json());
 // Use express.urlencoded
 app.use(express.urlencoded('extended', true));
 
-app.use('/api', [composerRoutes, personRoutes])
+app.use('/api', [composerRoutes, personRoutes, userRoutes])
 
 //Define options.
 const options = {
