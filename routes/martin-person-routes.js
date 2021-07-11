@@ -69,6 +69,8 @@ const Person = require("../models/martin-person");
  *                   properties:
  *                     text:
  *                       type: "string"
+ *               birthDate:
+ *                 type: "string"
  *               dependents:
  *                 type: "array"
  *                 items: 
