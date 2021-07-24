@@ -79,7 +79,7 @@ app.use('/api-docs', swaggerUIExpress.serve, swaggerUIExpress.setup(openAPISpeci
 
 
 // Create server and listen on port 3000.
-http.createServer(app).listen(3000, function() {
+http.createServer(app).listen(process.env.PORT || 3000, function() {
 
     console.log("Application started and listening on port 3000!");
  
