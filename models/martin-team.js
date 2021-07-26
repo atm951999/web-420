@@ -15,12 +15,14 @@ const mongoose = require("mongoose");
 // Create Schema variable and assign mongoose.Schema object.
 const Schema = mongoose.Schema;
 
+// Create playerSchema variable
 const playerSchema = new Schema ({
     firstName: String,
     lastName: String,
     salary: Number
 })
 
+// Create teamSchema variable
 const teamSchema = new Schema ({
     name: String,
     mascot: String,
